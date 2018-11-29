@@ -56,9 +56,17 @@ export default class App extends React.Component {
     const startTime = Date.now()
     this.state = {
       startTime,
-      duration: 25,
-      timeNow: startTime + 10 * 60 * 1000
+      duration: 1,
+      timeNow: startTime
     }
+    setInterval(() => {
+      const timeNow = Date.now()
+      const { startTime, duration } = this.state
+      this.setState({ timeNow })
+      if (timeNow - startTime > duration * 60 * 1000) {
+        this.setState({ startTime: timeNow })
+      }
+    }, 500)
   }
 
   render() {
@@ -71,6 +79,8 @@ export default class App extends React.Component {
             startTime={startTime}
             duration={duration}
             timeNow={timeNow}
+            showTimeInTitle={true}
+            handleBeforeUnload={true}
           />
           <Increaser target="_blank" href="https://increaser.org">
             Increaser

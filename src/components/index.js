@@ -26,19 +26,18 @@ export default class Timer extends React.Component {
   }
 
   render() {
-    const { wrapper: Wrapper, theme, startTime, timeNow, duration } = this.props
+    const { wrapper: Wrapper, theme, startTime, timeNow, duration, showTimeInTitle } = this.props
     const { diameter } = this.state
 
     const renderContent = () => {
       const secondsPass = Math.min((timeNow - startTime) / 1000, duration * 60)
-      // const secondsLeft = duration * 60 - secondsPass
       const percent = secondsPass / (duration * 60)
       const secondsLeft = duration * 60 - secondsPass
       return (
         <React.Fragment>
           <Circle>
             <TimeFill percent={percent} />
-            <Time secondsLeft={secondsLeft} diameter={diameter} />
+            <Time showInTitle={showTimeInTitle} secondsLeft={secondsLeft} diameter={diameter} />
           </Circle>
         </React.Fragment>
       )
@@ -61,10 +60,23 @@ export default class Timer extends React.Component {
   componentDidMount() {
     this.onResize()
     window.addEventListener('resize', this.onResize)
+    if (this.props.handleBeforeUnload) {
+      console.log('hey!')
+      window.addEventListener('beforeunload', this.exitPage)
+    }
+  }
+
+  exitPage = e => {
+    const message = 'Better stop timer first'
+    e.returnValue = message
+    return message
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.onResize)
+    if (this.props.handleBeforeUnload) {
+      window.removeEventListener('beforeunload', this.exitPage)
+    }
   }
 
   onResize = () => {
