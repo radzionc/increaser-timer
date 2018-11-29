@@ -22,7 +22,7 @@ export default ({ secondsLeft, diameter, showInTitle }) => {
     </DocumentTitle>
   ) : children
 
-  const size = diameter * 0.1
+  const size = diameter * 0.125
   return (
     <TitleWrapper>
       <Text style={{ fontSize: size, lineHeight: `${size}px` }}>
