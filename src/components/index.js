@@ -61,7 +61,6 @@ export default class Timer extends React.Component {
     this.onResize()
     window.addEventListener('resize', this.onResize)
     if (this.props.handleBeforeUnload) {
-      console.log('hey!')
       window.addEventListener('beforeunload', this.exitPage)
     }
   }
