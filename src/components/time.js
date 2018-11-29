@@ -4,6 +4,7 @@ import DocumentTitle from 'react-document-title'
 
 const Text = styled.h1`
   z-index: 1;
+  position: absolute;
   top: 42%;
   text-align: center;
   vertical-align: middle;
