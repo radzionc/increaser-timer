@@ -20,8 +20,7 @@ export default class Timer extends React.Component {
     super(props)
     this.state = {
       width: 0,
-      height: 0,
-      touching: false
+      height: 0
     }
   }
 
