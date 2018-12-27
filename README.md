@@ -2,7 +2,7 @@
 
 > 
 
-[![NPM](https://img.shields.io/npm/v/increaser-timer.svg)](https://www.npmjs.com/package/increaser-timer) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/increaser-timer.svg)](https://www.npmjs.com/package/increaser-timer)
 
 ![alt text](https://cdn-images-1.medium.com/max/2000/1*FSPccrD-tfhlbniF8sJluQ.gif)
 
@@ -27,6 +27,13 @@ const Container = ({ children }) => (
   </div>
 )
 
+// optional
+export theme = {
+  textColor: 'white',
+  timeFillColor: '#FFDC00',
+  circleColor: 'rgba(255, 255, 255, 0.15)'
+}
+
 class Example extends React.Component {
   constructor(props) {
     super(props)
@@ -50,6 +57,7 @@ class Example extends React.Component {
     const { duration, startTime, timeNow } = this.state
     return (
       <Timer
+        theme={theme}
         wrapper={Container}
         startTime={startTime}
         duration={duration}

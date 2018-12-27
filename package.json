@@ -1,6 +1,6 @@
 {
   "name": "increaser-timer",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "",
   "author": "RodionChachura",
   "license": "MIT",
@@ -8,6 +8,7 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
+  "typings": "./index.d.ts",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
@@ -56,7 +57,8 @@
     "rollup-plugin-url": "^1.4.0"
   },
   "files": [
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
   "dependencies": {
     "react-document-title": "^2.0.3",
