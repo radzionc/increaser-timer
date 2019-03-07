@@ -78,16 +78,17 @@ export default class Timer extends React.Component {
   }
 
   onResize = () => {
-    if (this.wrapper.getBoundingClientRect) {
-      const { width, height } = this.wrapper.getBoundingClientRect()
+    const process = (element) => {
+      const { width, height } = element.getBoundingClientRect()
       const diameter = Math.min(width, height)
       this.setState({ width, height, diameter })
+    }
+    if (this.wrapper && this.wrapper.getBoundingClientRect) {
+      process(this.wrapper)
     } else {
       const element = document.getElementById('wrapper')
       if (element && element.getBoundingClientRect) {
-        const { width, height } = element.getBoundingClientRect()
-        const diameter = Math.min(width, height)
-        this.setState({ width, height, diameter })
+        process(element)
       }
     }
   }
