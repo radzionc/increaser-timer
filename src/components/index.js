@@ -44,7 +44,7 @@ export default class Timer extends React.Component {
 
     return (
       <ThemeProvider theme={{ ...defaultTheme, ...theme }}>
-        <Wrapper ref={el => (this.wrapper = el)}>
+        <Wrapper id='wrapper' ref={el => (this.wrapper = el)}>
           <Container
             ref={el => (this.view = el)}
             style={{ width: diameter, height: diameter }}
@@ -78,8 +78,17 @@ export default class Timer extends React.Component {
   }
 
   onResize = () => {
-    const { width, height } = this.wrapper.getBoundingClientRect()
-    const diameter = Math.min(width, height)
-    this.setState({ width, height, diameter })
+    if (this.wrapper.getBoundingClientRect) {
+      const { width, height } = this.wrapper.getBoundingClientRect()
+      const diameter = Math.min(width, height)
+      this.setState({ width, height, diameter })
+    } else {
+      const element = document.getElementById('wrapper')
+      if (element && element.getBoundingClientRect) {
+        const { width, height } = element.getBoundingClientRect()
+        const diameter = Math.min(width, height)
+        this.setState({ width, height, diameter })
+      }
+    }
   }
 }
