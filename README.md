@@ -69,7 +69,7 @@ class Example extends React.Component {
   }
 }
 ```
-## [Story on Medium](https://medium.com/p/cb76422f84bb)
+## [Blog Post](https://geekrodion.com/blog/timer-react)
 
 ## License
 
