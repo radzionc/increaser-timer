@@ -6,7 +6,7 @@
 
 ![alt text](https://cdn-images-1.medium.com/max/2000/1*FSPccrD-tfhlbniF8sJluQ.gif)
 
-## [Demo](https://rodionchachura.github.io/increaser-timer/)
+## [Demo](https://radzionc.github.io/increaser-timer/)
 
 ## Install
 
